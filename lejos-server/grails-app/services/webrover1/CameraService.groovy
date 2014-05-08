@@ -9,11 +9,13 @@ class CameraService implements InitializingBean, DisposableBean {
 	def delay = 1
 	def frame = 0
 	def running = true
+    def grailsApplication
 	
-	def ipWebcam = '172.17.5.198'
-	// def ipWebcam = '192.168.0.15'
+	//def ipWebcam = '172.17.5.198'
+    def ipWebcam
 	
     public void afterPropertiesSet() throws Exception {
+        ipWebcam = grailsApplication.config.ev3.robot.ipwebcam
 		def th = Thread.start {
 			while (running) {
 				snapshot()
@@ -25,7 +27,7 @@ class CameraService implements InitializingBean, DisposableBean {
     def snapshot() {
 		def next = (frame + 1) % (delay + 1)
 		new File("frame-${next}.jpeg").withOutputStream { out ->
-			new URL("http://$ipWebcam:8080/shot.jpg").withInputStream { out << it }
+			new URL("http://${ipWebcam}:8080/shot.jpg").withInputStream { out << it }
 		}
 		frame = next
     }

@@ -60,18 +60,29 @@ grails.exceptionresolver.params.exclude = ['password']
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
 
-nxt.robot.name = 'noor'
-nxt.robot.address = '00165312A8AB'
-nxt.robot.sensor = 'ultrasonic'
+ev3
+{
+    robot {
+        name = 'groovybot'
+        address = '192.168.1.14'
+        sensor = 'ultrasonic'
+        // values are N(NXT), L(EV3 Large), M (EV3 Medium), or G (MindsensorsGlideWheel)
+        motorA = 'L'
+        motorB = 'M'
+        motorC = 'L'
+        ipwebcam = '192.168.1.10'
+    }
+
+}
 
 environments {
 	claudia {
-		nxt.robot.name = 'claudia'
-		nxt.robot.address = '001653111619'
-		nxt.robot.sensor = 'touch'
+		ev3.robot.name = 'claudia'
+		ev3.robot.address = '192.168.1.24'
+		ev3.robot.sensor = 'touch'
 	}
 	imp {
-		nxt.robot.type = 'imp'
+		ev3.robot.type = 'imp'
 	}
     development {
         grails.logging.jul.usebridge = true

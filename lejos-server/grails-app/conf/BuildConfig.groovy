@@ -27,7 +27,7 @@ grails.project.dependency.resolution = {
         grailsPlugins()
         grailsHome()
         grailsCentral()
-
+        mavenRepo 'http://dl.bintray.com/rvanderwerf/lejos-libs'
         mavenLocal()
         mavenCentral()
 
@@ -40,7 +40,8 @@ grails.project.dependency.resolution = {
 
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
-
+        compile 'lejos:DBusJava:0.8.2-M1'
+        compile 'lejos:ev3classes:0.8.2-M2'
         // runtime 'mysql:mysql-connector-java:5.1.22'
     }
 

@@ -2,15 +2,14 @@ package webrover1
 
 import org.springframework.beans.factory.DisposableBean
 import org.springframework.beans.factory.InitializingBean
-
-import grails.converters.JSON
-
-import java.io.PrintStream
 import java.util.concurrent.ArrayBlockingQueue
-import java.util.concurrent.Callable
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
+/**
+ *  Adapted and heavily modified by Ryan Vanderwerf 2014 to run on EV3 0.8.1
+ *  contact: rvanderwerf@gmail.com or @RyanVanderwerf on twitter
+ */
 class RobotService implements InitializingBean, DisposableBean {
 
 	def robot
@@ -23,8 +22,8 @@ class RobotService implements InitializingBean, DisposableBean {
 	def threshold = 0
 
     public void afterPropertiesSet() throws Exception {
-		def config = grailsApplication.config.nxt.robot
-		robot = config.type == 'imp' ? new ImpRobot() : new NXTRobot()
+		def config = grailsApplication.config.ev3.robot
+		robot = config.type == 'imp' ? new ImpRobot() : new EV3Robot()
 		robot.setup(config)
 		delayThread = Executors.newScheduledThreadPool(1)
 		commands = new ArrayBlockingQueue(100)
@@ -107,9 +106,10 @@ class RobotService implements InitializingBean, DisposableBean {
 	}
 	
 	def sense() {
-		def config = grailsApplication.config.nxt.robot
+		def config = grailsApplication.config.ev3.robot
 		return robot.sense(config)
 	}
+
 
     void destroy() throws Exception {
 		running = false
