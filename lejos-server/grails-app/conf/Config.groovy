@@ -70,7 +70,7 @@ ev3
         motorA = 'L'
         motorB = 'M'
         motorC = 'L'
-        ipwebcam = '192.168.1.10'
+        ipwebcam = '192.168.1.2'
     }
 
 }
