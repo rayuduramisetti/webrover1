@@ -1,41 +1,24 @@
-webrover1
+webrover1 - EV3
 =========
 
-Code for WebRover1 project, part of International Space Apps Challenge 2013
+Code for WebRover1 project, part of International Space Apps Challenge 2013, Repurposed and rebuilt by Ryan Vanderwerf for EV3 Platform
+for Gr8Conf.eu 2014
 
-Project page: http://spaceappschallenge.org/project/webrover1/
+Original Project page: http://spaceappschallenge.org/project/webrover1/
 
 ## Set up
 
-1. Download Grails 2.2.1 and unzip somewhere suitable
+1. Download Grails 2.2.5 and unzip somewhere suitable or just install GVM (www.gvmtool.net)
    http://www.grails.org/download
 
-2. Download leJOS and put somewhere suitable
-   http://lejos.sourceforge.net/nxj-downloads.php
+2. Download Ryan's leJOS fork with RMIDifferentialPilot & Gradle support
+   git clone git://git.code.sf.net/u/ryanv78665/lejos u-ryanv78665-lejos
 
-3. If using Mountain Lion, download old Bluetooth driver and unzip
-   http://www.uweschmidt.org/files/WW_MountainLion.zip
-   
-4. Set up environment variables
+3. Install leJOS on EV3 brick (this was already done -- or see readme!) (see my fork or sd image)
 
-export GRAILS_HOME=~/springsource/grails-2.2.1
-export NXJ_HOME=~/legorovers/leJOS_NXJ_0.9.1beta-3
-export DYLD_LIBRARY_PATH=~/legorovers/WW_MountainLion
-export PATH=$PATH:$NXJ_HOME/bin:$GRAILS_HOME/bin
-export CLASSPATH=$NXJ_HOME/lib/pc/pccomm.jar:$NXJ_HOME/lib/pc/3rdparty/bluecove.jar
-export JAVA_OPTS="-d32 -Dnxj.home=$NXJ_HOME"
+4. Configure robot details in grails-app/conf/Config.groovy
 
-5. Install leJOS on NXT brick (this was already done -- or see readme!)
-
-6. Pair Bluetooth
-Bluetooth - Set Up Bluetooth Device...
-Find it in list
-Set Passcode Preferences...
-1234
-
-7. Configure robot details in grails-app/conf/Config.groovy
-
-8. Run Grails App
+5. Run Grails App
 
 cd lejos-server
 grails run-app
