@@ -16,7 +16,8 @@ class CameraService implements InitializingBean, DisposableBean {
 	
     public void afterPropertiesSet() throws Exception {
         ipWebcam = grailsApplication.config.ev3.robot.ipwebcam
-		def th = Thread.start {
+		System.out.println("Using ${ipWebcam} for camera addresss")
+        def th = Thread.start {
 			while (running) {
 				snapshot()
 				Thread.sleep(1000/fps as int)
