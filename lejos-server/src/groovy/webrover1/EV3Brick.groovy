@@ -54,8 +54,8 @@ public class EV3Brick {
 	private String btname, btaddress;
 	private RemoteEV3 comm;
 	private BrickInfo nxt;
-	private DataInputStream in;
-	private DataOutputStream out;
+	private DataInputStream input;
+	private DataOutputStream output;
 
 	
 	private boolean connected = false;
@@ -191,12 +191,12 @@ public class EV3Brick {
 			comm.getAudio().systemSound(0);
 
             try {
-                out.close();
+                output.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
             try {
-                in.close();
+                input.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
