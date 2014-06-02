@@ -12,6 +12,8 @@ import java.util.concurrent.TimeUnit
  */
 class RobotService implements InitializingBean, DisposableBean {
 
+    static transactional = false
+
 	def robot
 	def commands
 	def delay = 0

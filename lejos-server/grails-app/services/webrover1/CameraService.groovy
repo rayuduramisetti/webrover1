@@ -4,16 +4,18 @@ import org.springframework.beans.factory.DisposableBean
 import org.springframework.beans.factory.InitializingBean
 
 class CameraService implements InitializingBean, DisposableBean {
-	
+
+    static transactional = false
+
 	def fps = 2
 	def delay = 1
 	def frame = 0
 	def running = true
     def grailsApplication
-	
+
 	//def ipWebcam = '172.17.5.198'
     def ipWebcam
-	
+
     public void afterPropertiesSet() throws Exception {
         ipWebcam = grailsApplication.config.ev3.robot.ipwebcam
 		System.out.println("Using ${ipWebcam} for camera addresss")
