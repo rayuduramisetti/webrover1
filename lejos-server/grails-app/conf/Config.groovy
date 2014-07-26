@@ -64,16 +64,16 @@ ev3
 {
     robot {
         name = 'groovybot'
-        address = '192.168.168.97'
+        address = '192.168.168.49'
         sensor = 'ultrasonic'
         // values are N(NXT), L(EV3 Large), M (EV3 Medium), or G (MindsensorsGlideWheel)
         motorA = 'L'
         motorB = 'M'
         motorC = 'L'
         //  URL for iOS using app WebOfCam
-        ipwebcam = 'http://192.168.168.192:8080/image.jpeg'
+        ipwebcam = "http://192.168.168.192:8080/image.jpeg"
         // Below URL is used for some android camera app
-        //ipwebcam = 'http://192.168.168.192:8080'
+        //ipwebcam = 'http://192.168.168.192:8080/shot.jpg'
 
     }
 
