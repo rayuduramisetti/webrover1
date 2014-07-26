@@ -30,7 +30,7 @@ class CameraService implements InitializingBean, DisposableBean {
     def snapshot() {
 		def next = (frame + 1) % (delay + 1)
 		new File("frame-${next}.jpeg").withOutputStream { out ->
-			new URL("http://${ipWebcam}:8080/image.jpeg").withInputStream { out << it }
+			new URL("${ipWebcam}").withInputStream { out << it }
 		}
 		frame = next
     }
