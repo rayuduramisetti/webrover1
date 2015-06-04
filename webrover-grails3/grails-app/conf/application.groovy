@@ -15,7 +15,7 @@ grails.scaffolding.templates.domainSuffix = 'Instance'
 grails.json.legacy.builder = false
 // enabled native2ascii conversion of i18n properties files
 grails.enable.native2ascii = true
-// packages to include in Spring bean scanning
+// packages to include in Spring begvan scanning
 grails.spring.bean.packages = []
 // whether to disable processing of multi part requests
 grails.web.disable.multipart=false
@@ -28,7 +28,7 @@ grails.hibernate.cache.queries = false
 ev3 {
             robot {
                 name = 'groovybot'
-                address = '192.168.100.108'
+                address = '192.168.100.100'
                 sensor = 'ultrasonic'
                 // values are N(NXT), L(EV3 Large), M (EV3 Medium), or G (MindsensorsGlideWheel)
                 motorA = 'L'
@@ -37,7 +37,7 @@ ev3 {
                 //  URL for iOS using app WebOfCam
                 //ipwebcam = "http://192.168.1.192:8080/image.jpeg"
                 // Below URL is used for some android camera app
-                ipwebcam = 'http://192.168.100.112:8080/shot.jpg'
+                ipwebcam = 'http://192.168.100.101:8080/shot.jpg'
 
             }
         }
